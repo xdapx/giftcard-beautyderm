@@ -188,7 +188,7 @@
       align-items: center;
     }
     .gc-logo {
-      height: 52px;
+      height: 65px;
       width: auto;
       display: block;
     }
@@ -205,7 +205,7 @@
       margin-top: 4px;
     }
 
-    .gc-sep { display: flex; align-items: center; gap: 10px; margin: 16px 0 10px; }
+    .gc-sep { display: flex; align-items: center; gap: 10px; margin: 10px 0 7px; }
     .gc-sep-line {
       height: 1px; width: 36px;
       background: linear-gradient(90deg, #C9A96E, rgba(201,169,110,0.2));
@@ -230,26 +230,43 @@
     }
     .gc-name { color: #fff; }
 
+    .gc-treatment {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      margin-top: 5px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .gc-contact {
+      font-size: 8px;
+      letter-spacing: 0.8px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.30);
+    }
+
     .gc-message {
       font-size: 14px;
       font-weight: 300;
       line-height: 1.55;
-      margin-top: 8px;
+      margin-top: 4px;
       flex: 1;
       overflow: hidden;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
       -webkit-box-orient: vertical;
       letter-spacing: 0.2px;
     }
     .gc-message { color: rgba(255,255,255,0.45); }
 
     .gc-footer {
-      padding-top: 10px;
+      padding-top: 8px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .gc-code-block { display: flex; flex-direction: column; gap: 3px; }
@@ -290,6 +307,11 @@
     <div class="control-group">
       <label>Nombre del paciente</label>
       <input type="text" id="inp-name" placeholder="Ej: María González" value="María González">
+    </div>
+
+    <div class="control-group">
+      <label>Tratamiento</label>
+      <input type="text" id="inp-treatment" placeholder="Ej: Limpieza Facial Profunda" value="Limpieza Facial Profunda">
     </div>
 
     <div class="control-group">
@@ -347,6 +369,7 @@
 
           <div class="gc-para-label">Para</div>
           <div class="gc-name" id="gc-name">María González</div>
+          <div class="gc-treatment" id="gc-treatment">Limpieza Facial Profunda</div>
           <div class="gc-message" id="gc-message">Para que disfrutes de un momento especial para vos.</div>
 
           <div class="gc-footer">
@@ -355,6 +378,7 @@
               <div class="gc-code" id="gc-code">BD-2024-0042</div>
             </div>
             <div class="gc-footer-line"></div>
+            <div class="gc-contact">Av. Rivadavia 6351, Caballito · +54 9 11 5095-8799</div>
             <div class="gc-tc" id="gc-tc">Válido por 6 meses desde su emisión. No acumulable con otras promociones. Intransferible. Sin valor en efectivo.</div>
           </div>
 
@@ -374,8 +398,9 @@
       document.getElementById(targetId).textContent = this.value;
     });
   }
-  bind('inp-name',    'gc-name');
-  bind('inp-code',    'gc-code');
+  bind('inp-name',      'gc-name');
+  bind('inp-treatment', 'gc-treatment');
+  bind('inp-code',      'gc-code');
   bind('inp-message', 'gc-message');
   bind('inp-tc',      'gc-tc');
 
@@ -395,7 +420,7 @@
         scale: 3,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: null,
+        backgroundColor: '#141010',
         logging: false
       });
 
